@@ -12,6 +12,13 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 db.init_app(app)
 
 
+#creat model user...
+class User(db.Model):
+    id = db.Column(db.integer, primary_kay=True)
+    userName = db.column(db.string, nullable=False, uniqu=True)
+    email = db.Column(db.String)
+     
+
 @app.route('/hi')
 def hi(name='matin'):
     return render_template('hi.html',name=name)
